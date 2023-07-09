@@ -1,0 +1,16 @@
+- Javascript was LiveScript in earlier days, due to JAVA popularity, it changes to Javascript. I has nothing to do with JAVA programming.
+
+- Browsers have their own JS engine to complie js file.
+    - Chrome uses - V8 engine (popular)
+    - Firefox uses - Spider Monkey
+    - Microsoft Edge - Chakra
+
+- Version: ES (Ecma Script)
+    2015 - ES6 (which brought huge changes)
+    Since 2016, versions are named by year (ECMAScript 2016, 2017, 2018, 2019, 2020).
+
+- Js which runs in browser side, don't have access to your local file system, just to avoid hacking.
+
+- Node Js is another environment in modern days to bring js out of the box, which can be run in  machine environment.
+
+- node js uses same engine - V8
