@@ -11,6 +11,11 @@ const rajObj = {
   calAge: function () {
     this.age = 2023 - this.birthYear;
   },
+  summary: function () {
+    return `hello ${this.fname} ${this.lname}, you are a ${
+      this.job
+    }, and you have ${this.hasLicense ? "a" : "no"} license`;
+  },
 };
 
 rajObj.location = "kolkata";
@@ -23,3 +28,7 @@ console.log(rajObj);
 
 rajObj.calAge();
 console.log(rajObj.age);
+console.log(rajObj.summary());
+
+let x = 10;
+console.log(window);

@@ -1,0 +1,81 @@
+JS behind the scene:
+
+1. High-level:
+    - we don't need to manage hardware resources manually, like memory management
+    - C programming is low level which needs memory management manually.
+    - high level lang js, python
+2. Garbage Collection 
+    - js has feature to clean memory automatically
+    - basically it clean unused variable.
+3. Interpreted or Just-in-time compiled
+    - COMPILATION TYPE PROGRAMMING BEHAVIOUR -  source code --> compile at once --> creats portable (takes time) --> then executes
+    - INTERPRETED TYPE PROGRAMMING BEHAVIOUR - source code --> complie line by line --> executes line by line --> very slow
+    - earlier js was interpreted language, which means it complies line by line into machine code and then executes
+    - now, js is no more interpreted language, it is JIT(just-in-time) compiled language.
+    - so, the entire code complied into machine code at once, then executes immidiately.
+    - JIT (just-in-time) COMPILATION BEHAVIOUR - source code --> compiled at once --> skip portable file --> executes directly --> fast enough 
+
+
+4. Multi Paradigm
+    - Paradigm - An approach and mindset of structuring code. it can be Imparitive(focus on code) and Declearative(focus on result)
+    - Three popular paradigm are: note: pending
+        1. Procedural programming
+        2. Object Oriented Programming (OOP)
+        3. Functional Programming (FP)
+5. Prototype-Based Object-Oriented note: pending
+6. First-class Function
+    - functions are treated just like varibale.
+    - we can pass them into other function and return them from functions
+    - ex: elm.addEventListner("click", myFun); // passing fun in another fun
+7. Dynamic
+    - dynamically-typed language, so we don't need to assign data types.
+    - ex:
+        let x = 1; // type will known at runtime, that it is int
+        x = "test"; // it can be changed as per the value
+8. Single Threaded and Non Blocking Event Loop 
+    - concurrency model:  how the js engine handles multiple task happening at the same time. 
+    - Js works on single thread, means one task at a time
+    - sounds like it will block the thread for single task
+    - but, js use event loop machanism 
+    - event loop: js takes big task to event loop, which runs in background, and once it is done
+      it puts back in main thread by event loop.
+
+9. JS compiler consist of  - Call Stack and Heap Memory:
+    - CALL STACK (where all the code runs):
+        A call stack is a mechanism for an interpreter (like the JavaScript interpreter in a web browser) 
+        to keep track of its place in a script that calls multiple functions — 
+        what function is currently being run and what functions are called from within that function, etc.   
+    - HEAP MEMORY (where objects are stored)
+
+10. Call Stack has execution context for 
+    -first-level code (global scope) 
+    -all functions (every function has its own execution context)
+
+11. Inside EC (execution context) has 3 component:
+    - Variable Environment (let,const,var, functions and arguments object)
+    - Scope Chain - how our programm variables orgaised and can be accessed. 
+    - "this" keyword - each EC get this special varibale 
+    note: all the above 3 component is created in EC (execution context) in CREATION PHASE, while the
+             execution context is initialized
+    note: arrow funciton don't have "This" keyword  and arguments objects
+
+12. Scope:  
+        1. Gobal Scope - outside of any function or block, can be accessable from everywhere
+        2. Function Scope - also called local scope, accessable inside the same function.
+        3. Block Scope (es6) -  everything inside the block {} decleared using let, const, ex: if, for loop etc
+
+13. Hoisting:   makes some type of varibale usable or accessable before it is actually decleared. functions, var 
+
+ex-
+hi();
+function hi() {
+  console.log("hi");
+}
+
+14. TDZ - Temporal Dead Zone - some type of variable cannot be used before it is decleared
+
+console.log(x);
+let x = 10;
+
+15.
+WINDOW is GLOBAL OBJECT, sotres global functions and var defiend variables 
