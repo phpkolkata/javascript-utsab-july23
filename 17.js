@@ -41,7 +41,8 @@ const std = {
   friends: ["a", "b", "c"],
 };
 
-const std2 = Object.assign({}, std);
+// const std2 = Object.assign({}, std);
+const std2 = { ...std };
 // std.age = 30;
 console.log(std2.age); //20
 
