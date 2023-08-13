@@ -22,4 +22,18 @@ console.log(undefined || null); // null
 console.log(undefined || "" || 0 || "raj" || 23 || null); // raj
 // ------------------------------------------------------
 
-//
+const me = {
+  name: "raj",
+};
+
+// if (me.age) {
+//   age = me.age;
+// } else {
+//   age = 0;
+// }
+
+// const age = me.age ? me.age : 0; //turnary op
+
+const age = me.age || 0; // or op chort circuit
+
+//------------------------------------------------------
