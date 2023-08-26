@@ -33,6 +33,25 @@ console.log(plane.startsWith("Air"));
 console.log(plane.endsWith("neo"));
 
 // hw
+const checkBaggage = function (items) {
+  const bags = items.toLowerCase();
+
+  // invalid items list =
+  const invaliditems = ["knife", "gun", "nail cutter"];
+  for (const i of invaliditems) {
+    if (bags.includes(i)) {
+      return "invalid";
+    }
+  }
+  return "valid";
+};
+
 // prohibitedItems = "knife", naile cutter, ....""
-checkBaggage("i have a laptop, nail cutter and i have also a small knife"); //disallow
-checkBaggage("i have a laptop, comb and i have also a small purse"); //allow
+const result1 = checkBaggage(
+  "i have a laptop, nail Cutter and i have also a small knife"
+); //disallow
+const result2 = checkBaggage(
+  "i have a laptop, comb and i have also a small purse"
+); //allow
+
+console.log(result1, result2);
