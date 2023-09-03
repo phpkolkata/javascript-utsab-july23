@@ -76,3 +76,52 @@ for (const itm of arr) {
 for (const [key, val] of arr.entries()) {
   console.log(key, val);
 }
+
+// ----------------------------------
+// foreach with array
+
+const txn = [20, 45, 45, -23, -44];
+
+// txn.forEach((val,index,array)=>{});
+
+txn.forEach((amt, i) => {
+  // console.log(v, i);
+  if (amt > 0) {
+    console.log(`you have deposited the amount: ${amt} `);
+  } else {
+    console.log(`you have whithdrawn the amount: ${amt} `);
+  }
+});
+// -------------------------------------
+
+// foreach with Maps and Sets data structure
+
+// MAP
+const currencies = new Map([
+  ["USD", "United States Dollar"],
+  ["EUR", "Euro"],
+  ["GBP", "Pound Sterling"],
+]);
+
+// currencies.forEach(function (val,index,array) {});
+currencies.forEach(function (v, i, arr) {
+  console.log(v, i, arr);
+});
+
+// const currObj = {
+//   USD: "United States Dollar",
+//   EUR: "Euro",
+//   GBP: "Pound Sterling",
+// };
+
+// Set
+console.log("----------------------------");
+const currenciesSet = new Set(["USD", "EUR", "GBP", "USD"]);
+
+console.log(currenciesSet);
+
+currenciesSet.forEach((v, _, arr) => {
+  console.log(v);
+});
+
+// note : set doesn't have index , we can use _ (underscore) sign to throwaway index variable
