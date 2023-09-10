@@ -6,10 +6,25 @@
 const Person = function (name, dob) {
   this.name = name;
   this.dob = dob;
-  console.log(this);
+  console.log(this.name);
 };
 
+// Person();
+
+// console.log(this);
+
+// const obj = {
+//   name: "raj",
+//   hello: function () {
+//     console.log(this.name);
+//   },
+// };
+
+// obj.hello();
+
 const raj = new Person("raj", "1933");
+
+// console.log(raj);
 
 // {}
 // this = {}
