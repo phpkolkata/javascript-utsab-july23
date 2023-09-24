@@ -42,32 +42,26 @@ behind the page. -->
           box.innerHTML = "";
           const country = cn.value;
           const url = "https://restcountries.com/v3.1/name/"+country;
-           const req = new XMLHttpRequest(); // request object
-            req.open("get",url);// request opened
-            req.send(); // send request, once completed load event will be called
-
-            req.addEventListener("load",function(){
-            const data = JSON.parse(this.responseText)[0];
+           fetch(url)
+           .then(res=>res.json())
+           .then(res=>{
+            const data = res[0];
             renderHTML(data);
+                if(data.borders){
+                  for(let bdr of data.borders){
+                      const urlBdr = "https://restcountries.com/v3.1/alpha/"+bdr;
+                       fetch(urlBdr)
+                       .then(res=>res.json())
+                       .then(res=>{
+                        renderHTML(res[0], true);
+                       });
+                  }
+                }
+           })
 
-            if(data.borders){
-              for(let bdr of data.borders){
-                  const urlBdr = "https://restcountries.com/v3.1/alpha/"+bdr;
 
-                const req2 = new XMLHttpRequest(); // req2uest object
-                req2.open("get",urlBdr);// req2uest opened
-                req2.send(); // send req2uest, once completed load event will be called
-
-                req2.addEventListener("load",function(){
-                  const data2 = JSON.parse(this.responseText)[0];
-                  console.log(data2);
-                  renderHTML(data2, true);
-                });
-              }
-            }
 
           });
-        });
 
 
 
