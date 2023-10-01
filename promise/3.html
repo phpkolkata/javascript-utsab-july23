@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script lang="javascript">
+
+      console.log("start");
+
+      // const lottery = new Promise((resolve, reject)=>{})
+      const lottery = new Promise((resolve, reject)=>{
+          setTimeout(()=>{
+            if(Math.random()>0.5)
+             resolve("you win");
+            else
+              reject("you lost");
+          },2000);
+      });
+
+      lottery.then(res=>console.log(res)).catch(err=>console.log(err));
+
+      console.log("end");
+    </script>
+  </head>
+  <body></body>
+</html>

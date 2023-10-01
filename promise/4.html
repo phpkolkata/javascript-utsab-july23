@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script lang="javascript">
+
+        const link = "https://restcountries.com/v3.1/name/bangladesdh";
+
+        // function fetchUrl(url){
+        //   fetch(url)
+        //       .then(res=> res.json())
+        //       .then(res => console.log(res))
+        // }
+        // fetchUrl(link);
+
+
+      //   async await example
+        // async function fetchUrl2(url){
+        //     try{
+        //        const res = await fetch(url);
+        //        if(!res.ok){
+        //         throw new Error("not found")
+        //        }
+        //        console.log(await res.json());
+        //     }
+        //     catch(err){
+        //         alert(err)
+        //     }
+        // }
+        // fetchUrl2(link);
+
+        const link1 = "https://restcountries.com/v3.1/name/china";
+        const link2 = "https://restcountries.com/v3.1/name/bangladesdh";
+        const link3 = "https://restcountries.com/v3.1/name/india";
+
+        Promise.all([fetch(link1), fetch(link2), fetch(link3)])
+        .then(res=>console.log(res))
+    </script>
+  </head>
+  <body></body>
+</html>

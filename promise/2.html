@@ -28,7 +28,9 @@ behind the page. -->
     </style>
   </head>
   <body>
-    <div class="row"></div>
+    <div class="row">
+      <div id="loader"></div>
+    </div>
 
     country: <input type="text" id="cn" value="bangladesh" />
     <button id="btn">Load</button>
@@ -36,14 +38,24 @@ behind the page. -->
     <script lang="Javascript">
         const btn = document.querySelector("#btn");
         const box = document.querySelector(".row");
+        const loader = document.querySelector("#loader");
         const cn = document.querySelector("#cn");
 
         btn.addEventListener("click",()=>{
           box.innerHTML = "";
           const country = cn.value;
+          loader.innerHTML = "loading...";
+
           const url = "https://restcountries.com/v3.1/name/"+country;
            fetch(url)
-           .then(res=>res.json())
+           .then(res=>{
+
+            if(!res.ok){
+              throw new Error("Country not found");
+            }
+
+            return res.json()
+          })
            .then(res=>{
             const data = res[0];
             renderHTML(data);
@@ -57,12 +69,20 @@ behind the page. -->
                        });
                   }
                 }
+                else{
+                  throw new Error("no border found");
+                }
            })
-
-
+           .catch(err=>{
+            // alert(err);
+            console.log(err);
+           })
+           .finally(()=>{
+            // alert("loaded")
+              loader.innerHTML = "";
+           });
 
           });
-
 
 
 
